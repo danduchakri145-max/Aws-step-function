@@ -34,4 +34,29 @@ resource "aws_iam_role_policy" "step_policy" {
     ]
   })
 }
+ resource "aws_iam_role_policy" "ecs_policy" {
+  name = "ecs-run-task-policy"
+  role = aws_iam_role.step_role.id
+ 
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ecs:RunTask",
+          "ecs:DescribeTasks"
+        ]
+        Resource = "*"
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "iam:PassRole"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
  
