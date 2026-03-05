@@ -1,5 +1,5 @@
 resource "aws_iam_role" "step_role" {
-name = "abc-step-function-role"
+name = "abc-step-function-role-v2"
 
 assume_role_policy = jsonencode({
 Version = "2012-10-17"
