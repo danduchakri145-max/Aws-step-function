@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "main" {
-  name = "abc-cluster1"
+  name = "abc-cluster2"
 }
 resource "aws_ecs_task_definition" "task" {
   family                   = "abc-task"
